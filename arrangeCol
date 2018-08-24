@@ -1,0 +1,37 @@
+Sub arrangeCol()
+'
+' arrangeCol Macro
+'
+' Keyboard Shortcut: Ctrl+Shift+C
+'
+    Cells(1, 1).Activate
+    ActiveCell.Offset(0, 17).Columns("A:A").EntireColumn.Select
+    Selection.Cut
+    ActiveCell.Offset(0, -15).Columns("A:A").EntireColumn.Select
+    Selection.Insert Shift:=xlToRight
+    ActiveCell.Offset(0, 1).Columns("A:B").EntireColumn.Select
+    Selection.Delete Shift:=xlToLeft
+    ActiveCell.Offset(0, 3).Columns("A:D").EntireColumn.Select
+    Selection.Delete Shift:=xlToLeft
+    lrow = Range("A" & Rows.Count).End(xlUp).Row - 1
+    Range(Cells(2, 1), Cells(lrow, 8)).Select
+    Selection.Copy
+    Workbooks("Copy.xlsm").Activate
+    Sheets("债券总表").Activate
+    
+    ActiveCell.Offset(2, 0).Range("A1").Select
+    Selection.Insert Shift:=xlDown
+    ActiveCell.Offset(-4, 0).Range("A1").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    ActiveCell.Offset(4, 0).Range("A1").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.PasteSpecial Paste:=xlPasteFormats, Operation:=xlNone, _
+        SkipBlanks:=False, Transpose:=False
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(2, 0).Range("A1:H1").Select
+    
+    
+End Sub
