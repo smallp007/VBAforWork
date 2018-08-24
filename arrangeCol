@@ -18,6 +18,7 @@ Sub arrangeCol()
     lrow = Range("A" & Rows.Count).End(xlUp).Row - 1
     Range(Cells(2, 1), Cells(lrow, 8)).Select
     Selection.Copy
+    
     Workbooks("Copy.xlsm").Activate
     Sheets("债券总表").Activate
     
