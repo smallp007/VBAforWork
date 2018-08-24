@@ -1,0 +1,28 @@
+Sub add()
+'
+' add Macro
+'
+' Keyboard Shortcut: Ctrl+Shift+A
+
+CountColorValue = Sheets("发行主体").Cells(2, 2).Interior.ColorIndex
+  
+
+For i = 2 To 196
+    If Sheets("发行主体").Cells(i, 2).Interior.ColorIndex = CountColorValue Then
+    
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Selection.End(xlUp).Select
+    Selection.End(xlUp).Select
+    ActiveCell.Range("A1:H2").Select
+    Selection.Copy
+    Selection.End(xlDown).Select
+    ActiveCell.Offset(2, 0).Range("A1").Select
+    ActiveSheet.paste
+    ActiveCell.Range("A1").Select
+    ActiveCell.Value = Sheets("发行主体").Cells(i, 3).Value
+    
+    End If
+    
+Next
+End Sub
