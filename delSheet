@@ -1,0 +1,6 @@
+
+Sub del()
+    
+    ActiveWorkbook.Close (SaveChanges = False)
+    
+End Sub
