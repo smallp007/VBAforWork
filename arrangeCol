@@ -1,4 +1,6 @@
-Sub arrangeCol()
+Sub arrangeCol() 
+'
+'put this code in PERSONAL.XLSB so it can be used for all workbooks
 '
 ' arrangeCol Macro
 '
